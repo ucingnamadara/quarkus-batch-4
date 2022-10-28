@@ -3,6 +3,8 @@ package com.kawahedukasi.batch4.model;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Optional;
 
 @Entity
 @Table(name = "peserta")
@@ -48,4 +50,22 @@ public class Peserta extends PanacheEntityBase {
                 ", batch=" + batch +
                 '}';
     }
+
+    public static Optional<Peserta> findByEmail(String email){
+        return Peserta.find("email = ?1",email).firstResultOptional();
+    }
+
+    public static Optional<Peserta> findByName(String name){
+        return Peserta.find("name = ?1",name).firstResultOptional();
+    }
+
+    public static Optional<Peserta> findByPhoneNumber(String phoneNumber){
+        return Peserta.find("phone_number = ?1",phoneNumber).firstResultOptional();
+    }
+
+    public static List<Peserta> findByPhoneNumberOrEmail(String phoneNumber, String email){
+        return Peserta.find("phone_number = ?1 OR email = ?2",phoneNumber, email).list();
+    }
+
+
 }
