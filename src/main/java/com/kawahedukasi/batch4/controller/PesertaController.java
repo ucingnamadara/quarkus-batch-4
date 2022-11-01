@@ -3,6 +3,7 @@ package com.kawahedukasi.batch4.controller;
 import com.kawahedukasi.batch4.model.dto.PesertaRequest;
 import com.kawahedukasi.batch4.service.PesertaService;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -11,6 +12,7 @@ import javax.ws.rs.core.Response;
 @Path("/peserta")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@RolesAllowed("admin")
 public class PesertaController {
 
     @Inject

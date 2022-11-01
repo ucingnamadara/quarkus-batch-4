@@ -77,6 +77,10 @@
       <version>2.13.3.Final</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-security-jpa</artifactId>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
