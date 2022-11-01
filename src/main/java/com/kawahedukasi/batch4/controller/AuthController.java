@@ -16,15 +16,15 @@ import javax.ws.rs.core.SecurityContext;
 @Consumes(MediaType.APPLICATION_JSON)
 public class AuthController {
 
-//    @Inject
-//    AuthService authService;
-//
-//    @Path("/login")
-//    @POST
-//    @PermitAll
-//    public Response login(Login request){
-//       return authService.login(request);
-//    }
+    @Inject
+    AuthService authService;
+
+    @Path("/login")
+    @POST
+    @PermitAll
+    public Response login(Login request){
+       return authService.login(request);
+    }
 
 //    @Path("/me")
 //    @GET
