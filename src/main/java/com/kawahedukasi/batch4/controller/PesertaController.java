@@ -1,5 +1,6 @@
 package com.kawahedukasi.batch4.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.kawahedukasi.batch4.model.dto.PesertaRequest;
 import com.kawahedukasi.batch4.service.PesertaService;
 
@@ -19,7 +20,7 @@ public class PesertaController {
     PesertaService pesertaService;
 
     @POST
-    public Response post(PesertaRequest request){
+    public Response post(PesertaRequest request) throws JsonProcessingException {
         return pesertaService.post(request);
     }
 

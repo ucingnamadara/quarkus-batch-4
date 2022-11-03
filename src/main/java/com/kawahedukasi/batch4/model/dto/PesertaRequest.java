@@ -1,5 +1,8 @@
 package com.kawahedukasi.batch4.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PesertaRequest {
     public String name;
     public String address;

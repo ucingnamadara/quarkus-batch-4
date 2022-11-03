@@ -1,5 +1,6 @@
 package com.kawahedukasi;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.kawahedukasi.batch4.controller.PesertaController;
 import com.kawahedukasi.batch4.model.Peserta;
 import com.kawahedukasi.batch4.model.dto.PesertaRequest;
@@ -28,7 +29,7 @@ public class PesertaTestCase {
     PesertaController pesertaController;
 
     @Test
-    public void post(){
+    public void post() throws JsonProcessingException {
         PanacheMock.mock(Peserta.class);
         PanacheMock.doNothing().when(Peserta.class).persist();
 
