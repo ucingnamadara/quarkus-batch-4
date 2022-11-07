@@ -1,5 +1,6 @@
 package com.kawahedukasi.batch4.service;
 
+import com.kawahedukasi.batch4.exception.ValidationException;
 import com.kawahedukasi.batch4.model.User;
 import com.kawahedukasi.batch4.model.dto.Login;
 import com.kawahedukasi.batch4.util.TokenUtil;
@@ -18,10 +19,10 @@ public class AuthService {
 
     Logger logger = LoggerFactory.getLogger(AuthService.class);
 
-    public Response login(Login request){
+    public Response login(Login request) throws ValidationException {
         Optional<User> optionalUser = User.findByUsername(request.username);
         if(optionalUser.isEmpty()){
-            return Response.status(Response.Status.BAD_REQUEST).entity(Map.of("message", "USER_NOT_FOUND")).build();
+            throw new ValidationException("USER_NOT_FOUND");
         }
 
         User user = optionalUser.get();
@@ -29,7 +30,7 @@ public class AuthService {
 
 
         if(!password.equals(user.password)){
-            return Response.status(Response.Status.BAD_REQUEST).entity(Map.of("message", "WRONG_PASSWORD")).build();
+            throw new ValidationException("WRONG_PASSWORD");
         }
 
 

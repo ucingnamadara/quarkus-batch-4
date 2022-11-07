@@ -1,6 +1,7 @@
 package com.kawahedukasi.batch4.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.kawahedukasi.batch4.exception.ValidationException;
 import com.kawahedukasi.batch4.model.dto.PesertaRequest;
 import com.kawahedukasi.batch4.service.PesertaService;
 
@@ -26,7 +27,7 @@ public class PesertaController {
 
     @GET
     @Path("/id/{id}")
-    public Response getById(@PathParam("id") Long id){
+    public Response getById(@PathParam("id") Long id) throws ValidationException {
         return pesertaService.getById(id);
     }
 

@@ -1,5 +1,6 @@
 package com.kawahedukasi.batch4.controller;
 
+import com.kawahedukasi.batch4.exception.ValidationException;
 import com.kawahedukasi.batch4.model.dto.Login;
 import com.kawahedukasi.batch4.service.AuthService;
 
@@ -22,7 +23,7 @@ public class AuthController {
     @Path("/login")
     @POST
     @PermitAll
-    public Response login(Login request){
+    public Response login(Login request) throws ValidationException {
        return authService.login(request);
     }
 
